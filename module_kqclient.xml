@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_kqclient" default="compile.module.kqclient">
+  <dirname property="module.kqclient.basedir" file="${ant.file.module_kqclient}"/>
+  
+  <property name="module.jdk.home.kqclient" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.kqclient" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.kqclient" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.kqclient" value="-encoding UTF-8 -source 8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="kqclient.output.dir" value="${module.kqclient.basedir}/target/classes"/>
+  <property name="kqclient.testoutput.dir" value="${module.kqclient.basedir}/target/test-classes"/>
+  
+  <path id="kqclient.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="kqclient.module.production.classpath">
+    <path refid="${module.jdk.classpath.kqclient}"/>
+    <path refid="library.kqbot-0.01.classpath"/>
+    <path refid="library.jsonij-0.3.1.classpath"/>
+    <path refid="library.java_websocket.classpath"/>
+    <path refid="library.maven:_org.projectlombok:lombok:1.18.6.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-web:2.1.3.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter:2.1.3.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot:2.1.3.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-autoconfigure:2.1.3.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-logging:2.1.3.release.classpath"/>
+    <path refid="library.maven:_ch.qos.logback:logback-classic:1.2.3.classpath"/>
+    <path refid="library.maven:_ch.qos.logback:logback-core:1.2.3.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-to-slf4j:2.11.2.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-api:2.11.2.classpath"/>
+    <path refid="library.maven:_org.slf4j:jul-to-slf4j:1.7.25.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.3.2.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-jcl:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-json:2.1.3.release.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.9.0.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.module:jackson-module-parameter-names:2.9.8.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-tomcat:2.1.3.release.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.embed:tomcat-embed-core:9.0.16.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.embed:tomcat-embed-el:9.0.16.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.embed:tomcat-embed-websocket:9.0.16.classpath"/>
+    <path refid="library.maven:_org.hibernate.validator:hibernate-validator:6.0.14.final.classpath"/>
+    <path refid="library.maven:_javax.validation:validation-api:2.0.1.final.classpath"/>
+    <path refid="library.maven:_org.jboss.logging:jboss-logging:3.3.2.final.classpath"/>
+    <path refid="library.maven:_com.fasterxml:classmate:1.4.0.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-web:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-webmvc:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:5.1.5.release.classpath"/>
+    <path refid="library.maven:_com.alibaba:fastjson:1.2.62.classpath"/>
+  </path>
+  
+  <path id="kqclient.runtime.production.module.classpath">
+    <pathelement location="${kqclient.output.dir}"/>
+    <path refid="library.kqbot-0.01.classpath"/>
+    <path refid="library.jsonij-0.3.1.classpath"/>
+    <path refid="library.java_websocket.classpath"/>
+    <path refid="library.maven:_org.projectlombok:lombok:1.18.6.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-web:2.1.3.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter:2.1.3.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot:2.1.3.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-autoconfigure:2.1.3.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-logging:2.1.3.release.classpath"/>
+    <path refid="library.maven:_ch.qos.logback:logback-classic:1.2.3.classpath"/>
+    <path refid="library.maven:_ch.qos.logback:logback-core:1.2.3.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-to-slf4j:2.11.2.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-api:2.11.2.classpath"/>
+    <path refid="library.maven:_org.slf4j:jul-to-slf4j:1.7.25.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.3.2.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-jcl:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.yaml:snakeyaml:1.23.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-json:2.1.3.release.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.9.0.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.module:jackson-module-parameter-names:2.9.8.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-tomcat:2.1.3.release.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.embed:tomcat-embed-core:9.0.16.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.embed:tomcat-embed-el:9.0.16.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.embed:tomcat-embed-websocket:9.0.16.classpath"/>
+    <path refid="library.maven:_org.hibernate.validator:hibernate-validator:6.0.14.final.classpath"/>
+    <path refid="library.maven:_javax.validation:validation-api:2.0.1.final.classpath"/>
+    <path refid="library.maven:_org.jboss.logging:jboss-logging:3.3.2.final.classpath"/>
+    <path refid="library.maven:_com.fasterxml:classmate:1.4.0.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-web:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-webmvc:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:5.1.5.release.classpath"/>
+    <path refid="library.maven:_com.alibaba:fastjson:1.2.62.classpath"/>
+  </path>
+  
+  <path id="kqclient.module.classpath">
+    <path refid="${module.jdk.classpath.kqclient}"/>
+    <pathelement location="${kqclient.output.dir}"/>
+    <path refid="library.kqbot-0.01.classpath"/>
+    <path refid="library.jsonij-0.3.1.classpath"/>
+    <path refid="library.java_websocket.classpath"/>
+    <path refid="library.maven:_org.projectlombok:lombok:1.18.6.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-web:2.1.3.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter:2.1.3.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot:2.1.3.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-autoconfigure:2.1.3.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-logging:2.1.3.release.classpath"/>
+    <path refid="library.maven:_ch.qos.logback:logback-classic:1.2.3.classpath"/>
+    <path refid="library.maven:_ch.qos.logback:logback-core:1.2.3.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-to-slf4j:2.11.2.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-api:2.11.2.classpath"/>
+    <path refid="library.maven:_org.slf4j:jul-to-slf4j:1.7.25.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.3.2.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-jcl:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.yaml:snakeyaml:1.23.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-json:2.1.3.release.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.9.0.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.module:jackson-module-parameter-names:2.9.8.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-tomcat:2.1.3.release.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.embed:tomcat-embed-core:9.0.16.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.embed:tomcat-embed-el:9.0.16.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.embed:tomcat-embed-websocket:9.0.16.classpath"/>
+    <path refid="library.maven:_org.hibernate.validator:hibernate-validator:6.0.14.final.classpath"/>
+    <path refid="library.maven:_javax.validation:validation-api:2.0.1.final.classpath"/>
+    <path refid="library.maven:_org.jboss.logging:jboss-logging:3.3.2.final.classpath"/>
+    <path refid="library.maven:_com.fasterxml:classmate:1.4.0.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-web:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-webmvc:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:5.1.5.release.classpath"/>
+    <path refid="library.maven:_com.alibaba:fastjson:1.2.62.classpath"/>
+  </path>
+  
+  <path id="kqclient.runtime.module.classpath">
+    <pathelement location="${kqclient.testoutput.dir}"/>
+    <pathelement location="${kqclient.output.dir}"/>
+    <path refid="library.kqbot-0.01.classpath"/>
+    <path refid="library.jsonij-0.3.1.classpath"/>
+    <path refid="library.java_websocket.classpath"/>
+    <path refid="library.maven:_org.projectlombok:lombok:1.18.6.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-web:2.1.3.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter:2.1.3.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot:2.1.3.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-autoconfigure:2.1.3.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-logging:2.1.3.release.classpath"/>
+    <path refid="library.maven:_ch.qos.logback:logback-classic:1.2.3.classpath"/>
+    <path refid="library.maven:_ch.qos.logback:logback-core:1.2.3.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-to-slf4j:2.11.2.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-api:2.11.2.classpath"/>
+    <path refid="library.maven:_org.slf4j:jul-to-slf4j:1.7.25.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.3.2.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-jcl:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.yaml:snakeyaml:1.23.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-json:2.1.3.release.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.9.0.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.module:jackson-module-parameter-names:2.9.8.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-tomcat:2.1.3.release.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.embed:tomcat-embed-core:9.0.16.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.embed:tomcat-embed-el:9.0.16.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.embed:tomcat-embed-websocket:9.0.16.classpath"/>
+    <path refid="library.maven:_org.hibernate.validator:hibernate-validator:6.0.14.final.classpath"/>
+    <path refid="library.maven:_javax.validation:validation-api:2.0.1.final.classpath"/>
+    <path refid="library.maven:_org.jboss.logging:jboss-logging:3.3.2.final.classpath"/>
+    <path refid="library.maven:_com.fasterxml:classmate:1.4.0.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-web:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-webmvc:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:5.1.5.release.classpath"/>
+    <path refid="library.maven:_com.alibaba:fastjson:1.2.62.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.kqclient">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.kqclient">
+    <patternset refid="excluded.from.module.kqclient"/>
+  </patternset>
+  
+  <path id="kqclient.module.sourcepath">
+    <dirset dir="${module.kqclient.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="kqclient.module.test.sourcepath">
+    <dirset dir="${module.kqclient.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.kqclient" depends="compile.module.kqclient.production,compile.module.kqclient.tests" description="Compile module kqclient"/>
+  
+  <target name="compile.module.kqclient.production" depends="register.custom.compilers" description="Compile module kqclient; production classes">
+    <mkdir dir="${kqclient.output.dir}"/>
+    <javac2 destdir="${kqclient.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.kqclient}/javac">
+      <compilerarg line="${compiler.args.kqclient}"/>
+      <bootclasspath refid="kqclient.module.bootclasspath"/>
+      <classpath refid="kqclient.module.production.classpath"/>
+      <src refid="kqclient.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.kqclient"/>
+    </javac2>
+    
+    <copy todir="${kqclient.output.dir}">
+      <fileset dir="${module.kqclient.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.kqclient.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.kqclient.tests" depends="register.custom.compilers,compile.module.kqclient.production" description="compile module kqclient; test classes" unless="skip.tests">
+    <mkdir dir="${kqclient.testoutput.dir}"/>
+    <javac2 destdir="${kqclient.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.kqclient}/javac">
+      <compilerarg line="${compiler.args.kqclient}"/>
+      <bootclasspath refid="kqclient.module.bootclasspath"/>
+      <classpath refid="kqclient.module.classpath"/>
+      <src refid="kqclient.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.kqclient"/>
+    </javac2>
+    
+    <copy todir="${kqclient.testoutput.dir}">
+      <fileset dir="${module.kqclient.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.kqclient" description="cleanup module">
+    <delete dir="${kqclient.output.dir}"/>
+    <delete dir="${kqclient.testoutput.dir}"/>
+  </target>
+</project>
